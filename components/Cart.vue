@@ -39,7 +39,7 @@
                           @click="addProductItem(product)"
                           width="100"
                           v-bind:src="product.imgSource"
-                          alt=""
+                          alt="asd"
                         />
                       </nuxt-link>
                     </div>
