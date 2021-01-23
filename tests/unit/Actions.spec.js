@@ -43,7 +43,12 @@ describe('Cart.vue',()=> {
     })
 
     it('Cart.vue', () => {
-        const wrapper = shallowMount(Cart, { store, localVue })
+        const wrapper = shallowMount(Cart, { store, localVue, 
+            stubs: {
+                NuxtLink: true,
+                // Any other component that you want stubbed
+              }
+        })
         const buttons = wrapper.findAll('button').at(2).trigger('click')
         expect(mutations.remove).toHaveBeenCalled()
     })
