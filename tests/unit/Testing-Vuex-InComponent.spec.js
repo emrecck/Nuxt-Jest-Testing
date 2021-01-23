@@ -1,14 +1,17 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
 import Cart from '@/components/Cart'
+import AllProducts from '@/components/AllProducts'
 import cart from '@/store/cart'
+import allProduct from '@/store/allProduct'
 
 const localVue = createLocalVue()
 
 localVue.use(Vuex)
 
-describe('Cart.vue',()=> {
+describe('Cart.vue',()=>{
     let mutations
+    let actions
     let state
     let store
     
@@ -63,7 +66,9 @@ describe('Cart.vue',()=> {
             incCounter :jest.fn(),
             decCounter :jest.fn(),
         }
-
+        actions = {
+            updateProducts:jest.fn(),
+        }
         store = new Vuex.Store({
             modules: {
                 cart: {
@@ -79,11 +84,29 @@ describe('Cart.vue',()=> {
             },
             state,
             mutations,
+            actions,
             namespaced:true
         })
         
     })
 
+    it('AllProducts.vue ',()=> {
+        const wrapper = shallowMount(AllProducts, { store, localVue,
+            stubs: {
+                NuxtLink: true,
+            }})
+        wrapper.findAll('img').at(0).trigger('click')
+        expect(mutations.addProductItem).toHaveBeenCalled()
+    })
+
+    it('AllProducts.vue cart/addItem',()=> {
+        const wrapper = shallowMount(AllProducts, { store, localVue, 
+            stubs: {
+                NuxtLink: true,
+            }})
+        wrapper.find('button').trigger('click')
+        expect(mutations.add).toHaveBeenCalled()
+    })
     it('Cart.vue remove button', () => {
         const wrapper = shallowMount(Cart, { store, localVue, 
             stubs: {
@@ -119,5 +142,4 @@ describe('Cart.vue',()=> {
         wrapper.findAll('img').trigger('click')
         expect(mutations.addProductItem).toHaveBeenCalled()
     })
- 
 })
