@@ -1,0 +1,36 @@
+{
+  "name": "Nuxt-Jest-Testing",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt",
+    "generate": "nuxt generate",
+    "start": "nuxt start",
+    "test": "jest test"
+  },
+  "dependencies": {
+    "@meforma/vue-toaster": "^1.0.3",
+    "@nuxtjs/axios": "^5.12.2",
+    "axios": "^0.21.1",
+    "core-js": "^3.6.5",
+    "firebase": "^8.2.1",
+    "hooper": "^0.3.4",
+    "js-cookie": "^2.2.1",
+    "jwt-decode": "^3.1.2",
+    "nuxt": "^2.14.6",
+    "stylus": "^0.54.8",
+    "stylus-loader": "^3.0.2",
+    "vue-js-modal": "^2.0.0-rc.6",
+    "vue-simple-alert": "^1.1.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-unit-jest": "^4.5.11",
+    "@vue/test-utils": "^1.1.2",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^26.5.0",
+    "flush-promises": "^1.0.2",
+    "jest": "^26.5.0",
+    "vue-jest": "^3.0.7"
+  }
+}
